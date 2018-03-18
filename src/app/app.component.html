@@ -1,0 +1,59 @@
+<mat-toolbar color="primary" class="example-toolbar">
+    <i class="material-icons">messages</i>
+    <h1 class="example-app-name">Ai Chat</h1>
+</mat-toolbar>
+
+<mat-tab-group>
+    <mat-tab label="Tab 1">
+        <ng-template mat-tab-label>
+            <i class="material-icons">message</i>
+        </ng-template>
+        <div class="content">
+            <div class="tab1">
+                <mat-chip-list class="mat-chip-list-stacked">
+                    <div *ngFor="let msg of getMessages()">
+                        <mat-chip>
+                            <b>{{(msg.username == username) ? 'Yo' : msg.username}}</b>: {{msg.message}}
+                        </mat-chip>
+                    </div>
+                </mat-chip-list>
+            </div>
+            <div style="text-align: center;">
+                <form class="full-width msgForm" (submit)="envMessage()">
+                    <mat-form-field class="full-width">
+                        <input 
+                            #thisMessage 
+                            [(ngModel)]="message" 
+                            name="mensaje" 
+                            maxlength="64" 
+                            minlength="1"
+                            matInput 
+                            placeholder="Mensaje"
+                            autocomplete="off"
+                        >
+                        <mat-hint align="end">
+                            {{thisMessage.value.length}} / 64
+                        </mat-hint>
+                        <i class="material-icons" matSuffix>send</i>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div> 
+    </mat-tab>
+    <mat-tab label="Tab 2">
+         <ng-template mat-tab-label>
+            <i class="material-icons">camera</i>
+         </ng-template>
+        <div class="content">
+
+        </div>  
+    </mat-tab>
+    <mat-tab label="Tab 3">
+        <ng-template mat-tab-label>
+            <i class="material-icons">phone</i>
+        </ng-template>
+        <div class="content">
+            
+        </div> 
+    </mat-tab>
+</mat-tab-group>

@@ -6,7 +6,7 @@ export class SocketService {
   private url: string = "http://127.0.0.1:8080";
   public SOCKET = {
     MENSAJE: 'mensaje'
-  }; //Nombres de io/emit generados en el servidor app
+  };
   constructor() { }
   openConnection(): any{
     return io.connect(this.url);
