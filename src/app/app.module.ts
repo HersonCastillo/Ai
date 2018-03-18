@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { SocketService } from './socket.service';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    SocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
